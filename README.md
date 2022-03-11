@@ -3,7 +3,7 @@
 <h5 align="center"> Project Assignment - <a href="https://www.iitbbs.ac.in/">IIT Bhubaneswar</a> (Autumn 2021) </h5>
 
 <p align="center"> 
-<img src="images/full-cpu.jpeg" alt="Final Design of 32-bit CPU" height="600px" width="1000px">
+<img src="images/full-cpu.jpeg" alt="Final Design of 32-bit CPU" height="400px" width="800px">
 </p>
 I have designed and implemented a 32-bit Reduced Instruction Set Computer(RISC) using <a href="http://www.cburch.com/logisim/">LogiSim</a>.
 
@@ -89,7 +89,7 @@ The processor supports the following Assembly Instructions: -
   </ol>
   
 <p align="center"> 
-<img src="images/iencoding.jpeg" alt="Instruction Encoding" height="300px" width="1000px">
+<img src="images/iencoding.jpeg" alt="Instruction Encoding" height="250px" width="1000px">
 </p>
 
 <h2> Register File Encoding </h2>
