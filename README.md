@@ -55,7 +55,7 @@ The processor supports the following Assembly Instructions: -
   </tr>
   <tr>
     <td>Random Access Memory(RAM)</td>
-    <td>8 MB</td>
+    <td>256 KB</td>
   </tr>
   <tr>
     <td>Clock cycles per instruction</td>
@@ -188,9 +188,128 @@ The processor supports the following Assembly Instructions: -
 
 3.  The following image goes through one example of each instruction, and tells how to represent it in my encoding format (32 - bit encoding). 
 
+Instruction 
+(Numbers in decimal format)
+Opcode
+(5)
+Destination Register
+(5)
+Source Register - 1
+(Ra)
+(5)
+Source Register - 2 (Rb)
+(5)
+Immediate 
+Value or
+Offset
+(11)
+
+
+Enable Immedi-ate
+(1)
+HLT
+00000
+00000
+00000
+00000
+00000000000
+0
+MOVE R0, R5
+00001
+00000
+00101
+00000
+00000000000
+0
+MVI R7, 65535
+01000
+00111
+00000
+11111
+11111111111
+1
+LOAD R5, 16(R0)
+00010
+00101
+00000
+00000
+00000010000
+1
+STORE R5, 32(R0)
+00011
+00101
+00000
+00000
+00000100000
+1
+ADD R7, R2, R3
+00100
+00111
+00010
+00011
+00000000000
+0
+ADI R6, R2, 14
+00100
+00110
+00010
+00000
+00000001110
+1
+SUB R4, R3, R2
+00101
+00100
+00011
+00010
+00000000000
+0
+SUI R2, R4, 1
+00101
+00010
+00100
+00000
+00000000001
+1
+AND R1, R2, R4
+00110
+00001
+00010
+00100
+00000000000
+0
+ANI R3, R4, 65535
+00110
+00011
+00100
+11111
+11111111111
+1
+OR R1, R2, R4
+00111
+00001
+00010
+00100
+00000000000
+0
+ORI R3, R4, 65535
+00111
+00011
+00100
+11111
+11111111111
+1
+
+
+
 <p align="center"> 
 <img src="images/sencodings.jpeg" alt="Sample Encodings" height="480px" width="600px">
 </p>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2> How to store instructions in memory (or RAM)? </h2>
+
+<h2> How to run the 32-bit RISC processor? </h2>
+
+<h2> Dummy Programs </h2>
