@@ -86,17 +86,87 @@ The processor supports the following Assembly Instructions: -
 </ol>
   
 <li>At last, we have one bit that signifies Enable Immediate or Offset. It means that if any instruction makes use of an offset value or an immediate value, then this bit is set to 1, else it is set to zero (0).</li><br>
-  </ol>
+  </ul>
   
 <p align="center"> 
-<img src="images/iencoding.jpeg" alt="Instruction Encoding" height="250px" width="1000px">
+<img src="images/iencoding.jpeg" alt="Instruction Encoding" height="150px" width="700px">
 </p>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <h2> Register File Encoding </h2>
+
+<ul>
+  <li> The 32 - bit RISC processor, comprises of eight(8) General Purpose Registers, which are present inside the register file.</li><br>
+  <li> Each register is represented from R0 - R7. (Ri means ith register). </li>
+</ul>
+<br>
+
+<table>
+  <tr>
+    <th>Register</th>
+    <th>Encoding for Select Register (5 - bit)</th>
+  </tr>
+  <tr>
+    <td>R0</td>
+    <td>00000</td>
+  </tr>
+  <tr>
+    <td>R1</td>
+    <td>00001</td>
+  </tr>
+  <tr>
+    <td>R2</td>
+    <td>00010</td>
+  </tr>
+  <tr>
+    <td>R3</td>
+    <td>00011</td>
+  </tr>
+  <tr>
+    <td>R4</td>
+    <td>00100</td>
+  </tr>
+  <tr>
+    <td>R5</td>
+    <td>00101</td>
+  </tr>
+  <tr>
+    <td>R6</td>
+    <td>00110</td>
+  </tr>
+  <tr>
+    <td>R7</td>
+    <td>00111</td>
+  </tr>
+</table>
+  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <h2> Operation Encoding </h2>
+<ul>
+  <li>The 32 - bit RISC processor designed by me, works in total for 13 assembly instructions.</li><br>
+  <li>Each operation is identified by a 5-bit Opcode and 1 bit of Enable Immediate or Offset.</li><br>
+</ul>
+
+| **Operation <br> (Full Name)** | **Operation <br>(Short form)** | **Opcode <br> (5 bits)** | **Enable Immediate <br> (1 bit)** |
+| ---- | ----- | ----- | ----- |
+| Halt | HLT | 00000 | 0 | 
+| Move | MOV | 00001 | 0 |
+| Move Immediate | MVI | 01000 | 1 |
+| Load | LOAD | 00010 | 1 |
+| Store | STORE | 00011 | 1 |
+| Addition | ADD | 00100 | 0 |
+| Addition Immediate | ADI | 00100 | 1 |
+| Subtract | SUB | 00101 | 0 |
+| Subtract Immediate | SUI | 00101 | 1 |
+| And | AND | 00110 | 0 |
+| And Immediate | ANI | 00110 | 1 |
+| Or  | OR | 00111 | 0 |
+| Or Immediate | ORI | 00111 | 1 |
+
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
