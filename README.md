@@ -172,8 +172,25 @@ The processor supports the following Assembly Instructions: -
 
 <h2> Immediate Value Encoding </h2>
 
+<ul>
+  <li>If the operation makes use of an immediate value or an offset, then the enable immediate value or offset bit is set to 1.</li><br>
+  <li>The immediate value is represented using 16 bits, which are overlapped with source register - 2.</li><br>
+  <li>For example, if X or offset is 7 (in decimal), then it is represented as - 0000 0000 0000 0111</li><br>
+</ul>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <h2> Sample Encodings </h2>
+
+1.  The instruction should be written in the same order as given below, from **left to right**. Program Counter always starts from 0.
+
+2.  In the below example, for the instruction column, I am representing the offset or the immediate value in decimal format. It is converted into binary format in the immediate value column. <br>
+
+3.  The following image goes through one example of each instruction, and tells how to represent it in my encoding format (32 - bit encoding). 
+
+<p align="center"> 
+<img src="images/sencodings.jpeg" alt="Sample Encodings" height="480px" width="600px">
+</p>
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
