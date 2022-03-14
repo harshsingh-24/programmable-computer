@@ -308,7 +308,37 @@ The processor supports the following Assembly Instructions: -
 
 <h2> Program Execution Examples </h2>
 
-<h3> A = B + C - Immediate </h3>
+### **A = B + C – Immediate**
+
+Assuming R2 has the base address of the data and is loaded with 0x10(start), B = 0x23 at 0x20 address in RAM, C = 0x22 at 0x30 address in RAM, and Immediate = 0x12. Final result is stored at memory location 0x50.
+
+| **Address** | **Machine Code** | **Assembly Code** |
+| --- | --- | --- |
+| 0000 | Load R1, X(R2); Loads B | 10440021 |
+| 0001 | Load R3, Y(R2); Loads C | 10c40041 |
+| 0002 | Add R1, R1, R3; Adds B+C | 20423000 |
+| 0003 | Sui R1, R1, #Immediate; Subtracts Immediate from (B+C) | 28420025 |
+| 0004 | Store R1, Z(R2); Stores result in A | 18440081 |
+| 0005 | HLT; Halts execution | 00000000 |
+
+Memory image of this program is [here](memory-images/RAM_Load_first_program).
+
+### **A = (B OR C) AND Immediate**
+
+Assuming R2 has the base address of the data and is loaded with 0x10(start), B = 0x15 at 0x20 address in RAM, C = 0x23 at 0x30 address in RAM, and Immediate = 0x42. Final result is stored at memory location 0x50 inside RAM.
+
+| **Address** | **Machine Code** | **Assembly Code** |
+| --- | --- | --- |
+| 0000 | Load R1, X(R2); Loads B | 10440021 |
+| 0001 | Move R3, R1; Moves R1 to R3 | 08c20000 |
+| 0002 | Loads R1, Y(R2); Loads C | 10440041 |
+| 0003 | Move R4, R1; Moves R1 to R4 | 09020000 |
+| 0004 | OR R1, R3, R4; Performs OR of R3 and R4 | 38464000 |
+| 0005 | ANI R5, R1, #Immediate; Performs AND with Immediate | 31420085 |
+| 0006 | Store R5, Z(R2); Stores the result in A | 19440081 |
+| 0007 | HLT; Halts execution | 00000000 |
+
+Memory image of this program assuming R2 having value 0110, is [here](memory-images/RAM_Load_second_program).
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
