@@ -249,7 +249,7 @@ The processor supports the following Assembly Instructions: -
 `git clone https://github.com/harshsingh-24/32-bit-RISC-processor.git` or downloading the zip-file.
 2. Open the processor.circ file in LogiSim.
 3. Click on the **RESET** button to clear any previous data inside the processor.
-4.	Using <a href="instruction">Instruction Encoding</a>, <a href="operation">Operation Encoding</a>, <a href="register">Register File Encoding</a> and <a href="sample">Sample Encodings</a>, convert each of your instruction into corresponding hexadecimal value.
+4.	Using <a href="#instruction">Instruction Encoding</a>, <a href="#operation">Operation Encoding</a>, <a href="#register">Register File Encoding</a> and <a href="#sample">Sample Encodings</a>, convert each of your instruction into corresponding hexadecimal value.
 5. Load instructions into memory - as told in the encoding formats, instruction inside memory is represented in hexadecimal format. Program counter starts at the address 0000 of the memory. Therefore, load instructions from address 0000 inside the main memory.
 6. Right-click on RAM and select “Edit Contents” for inserting into memory. (Enter Hexadecimal values). It should look like this -
 
@@ -257,7 +257,7 @@ The processor supports the following Assembly Instructions: -
   <img src="images/ram_contents.jpeg" alt="RAM contents">
 </p>
 
-7. Press the System clock to start executing the instructions. You will have to press manually, every time when you want to change the current state of executing the instruction. The changes are always reflected at the rising edge of the clock cycle. 
+7. After loading the instructions in RAM, press the System clock to start executing the instructions. You will have to press manually, every time when you want to change the current state of executing the instruction. The changes are always reflected at the rising edge of the clock cycle. 
 8. Press 10 times on the clock, in order to completely execute the instruction inside the five-stage pipeline. 
 9. At every stage, using the **“Show simulation hierarchy”** option, you can check the state of execution which means what is the state of the Register File, which control signals are generated, which operation is being executed by the ALU and so on.
 10. After pressing the system clock 10 times, your Program Counter will get incremented.
