@@ -7,7 +7,7 @@
 </p>
 I have designed and implemented a 32-bit Reduced Instruction Set Computer(RISC) using <a href="http://www.cburch.com/logisim/">LogiSim</a>.
 
-## Contents
+<h2 id="content"> 📝 Contents </h2>
 
  1. [Functionalities](#func)
  2. [Overall Architecture](#architecture)
