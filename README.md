@@ -69,7 +69,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Instruction Encoding </h2>
+<h2 id="instruction"> Instruction Encoding </h2>
 <ul>
 <li>The Encoding format is of 32-bit size (which goes in accordance with the guidelines of RISC - 32 processor).</li><br>
   
@@ -94,7 +94,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Register File Encoding </h2>
+<h2 id="register"> Register File Encoding </h2>
 
 <ul>
   <li> The 32 - bit RISC processor, comprises of eight(8) General Purpose Registers, which are present inside the register file.</li><br>
@@ -144,7 +144,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Operation Encoding </h2>
+<h2 id="operation"> Operation Encoding </h2>
 <ul>
   <li>The 32 - bit RISC processor designed by me, works in total for 13 assembly instructions.</li><br>
   <li>Each operation is identified by a 5-bit Opcode and 1 bit of Enable Immediate or Offset.</li><br>
@@ -180,7 +180,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Sample Encodings </h2>
+<h2 id="sample"> Sample Encodings </h2>
 
 1.  The instruction should be written in the same order as given below, from **left to right**. Program Counter always starts from 0.
 
@@ -206,8 +206,68 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> How to store instructions in memory (or RAM)? </h2>
+<h2> Encoded instructions in memory (or RAM) </h2>
+
+<ul>
+  <li> We did convert our instructions into 32-bit binary format, but inside RAM(memory), the data is stored in hexadecimal format.</li> 
+  <li> The RAM which I have used, has address bit width of 16 and data bit width of 32. </li> 
+  <li> The instructions covered in <a href="#sample">Sample Encodings</a> section, will now be converted into Hexadecimal format, so that they can be loaded into the RAM for processing. </li> 
+</ul>
+
+| **Instruction <br> (Numbers in decimal format)** | **Hexadecimal Encoding  <br> (For memory/ RAM)** |
+| ---------------| -------------- |
+| HLT | 0x00000000  |
+| MOVE R0, R5 | 0x080a0000 |
+| MVI R7, 65535 | 0x41c1ffff |
+| LOAD R5, 16(R0) | 0x11400021 |
+| STORE R5, 32(R0) | 0x19400041 |
+| ADD R7, R2, R3 | 0x21c43000 |
+| ADI R6, R2, 14 | 0x2184001d |
+| SUB R4, R3, R2 | 0x29062000 |
+| SUI R2, R4, 1 | 0x28880003 |
+| AND R1, R2, R4 | 0x30444000 |
+| ANI R3, R4, 65535 | 0x30c9ffff |
+| OR R1, R2, R4 | 0x38444000 |
+| ORI R3, R4, 65535 | 0x38c9ffff |
+
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <h2> How to run the 32-bit RISC processor? </h2>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <h2> Dummy Programs </h2>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+<h2> Usage Instructions </h2>
+
+1. Clone this repository using
+`git clone https://github.com/harshsingh-24/32-bit-RISC-processor.git` or downloading the zip-file.
+2. Open the processor.circ file in LogiSim.
+3. Click on the **RESET** button to clear any previous data inside the processor.
+4.	Using <a href="instruction">Instruction Encoding</a>, <a href="operation">Operation Encoding</a>, <a href="register">Register File Encoding</a> and <a href="sample">Sample Encodings</a>, convert each of your instruction into corresponding hexadecimal value.
+5. Load instructions into memory - as told in the encoding formats, instruction inside memory is represented in hexadecimal format. Program counter starts at the address 0000 of the memory. Therefore, load instructions from address 0000 inside the main memory.
+6. Right-click on RAM and select “Edit Contents” for inserting into memory. (Enter Hexadecimal values). It should look like this -
+
+<p align="center">
+  <img src="images/ram_contents.jpeg" alt="RAM contents">
+</p>
+
+7. Press the System clock to start executing the instructions. You will have to press manually, every time when you want to change the current state of executing the instruction. The changes are always reflected at the rising edge of the clock cycle. 
+8. Press 10 times on the clock, in order to completely execute the instruction inside the five-stage pipeline. 
+9. At every stage, using the **“Show simulation hierarchy”** option, you can check the state of execution which means what is the state of the Register File, which control signals are generated, which operation is being executed by the ALU and so on.
+10. After pressing the system clock 10 times, your Program Counter will get incremented.
+
+***Kudos !! You have successfully executed your first instruction present at the 0000 address location. Want to execute more instructions?***
+
+11. If yes, then repeat the same process from **step 3**. After you have successfully executed all the instructions, if you want to run a different program, then you will have to use the Memory clear and Reset button before loading a new program.
+
+**Note**: Make sure the instructions and data fed to the memory and registers are in the hexadecimal format.
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
