@@ -7,7 +7,25 @@
 </p>
 I have designed and implemented a 32-bit Reduced Instruction Set Computer(RISC) using <a href="http://www.cburch.com/logisim/">LogiSim</a>.
 
-<h2> 🌟 Functionalities </h2>
+## Contents
+
+ 1. [Functionalities](#func)
+ 2. [Overall Architecture](#architecture)
+ 3. [Components](#components)
+ 4. [Five Stage Architecture](#five)
+ 5. [Instruction Encoding](#instruction)
+ 6. [Register File Encoding](#register)
+ 7. [Operation Encoding](#operation)
+ 8. [Immediate Value Encoding](#immediate)
+ 9. [Sample Encodings](#sample)
+ 10. [Encoded Instructions in Memory(or RAM)](#encoded)
+ 11. [Program Execution Examples](#program)
+ 12. [Usage Instructions](#usage)
+ 13. [Credits](#credits)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="func"> 🌟 Functionalities </h2>
 
 The processor supports the following Assembly Instructions: - 
 
@@ -30,7 +48,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> 🤖 Overall Architecture </h2>
+<h2 id="architecture"> 🤖 Overall Architecture </h2>
 
 <table>
   <tr>
@@ -69,7 +87,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Components </h2>
+<h2 id="components"> 💾 Components </h2>
 
 ### 1. **Block Diagram of Five Stage Architecture**
 
@@ -121,7 +139,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Five Stage Architecture </h2>
+<h2 id="five"> :book: Five Stage Architecture </h2>
 
 <ul>
   <li> Fetch: The instruction pointed by Program Counter is fetched from Random Access Memory and transmitted to the Instruction Register (IR).</li>
@@ -142,7 +160,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="instruction"> Instruction Encoding </h2>
+<h2 id="instruction"> :twisted_rightwards_arrows: Instruction Encoding </h2>
 <ul>
 <li>The Encoding format is of 32-bit size (which goes in accordance with the guidelines of RISC - 32 processor).</li><br>
   
@@ -167,7 +185,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="register"> Register File Encoding </h2>
+<h2 id="register"> :twisted_rightwards_arrows: Register File Encoding </h2>
 
 <ul>
   <li> The 32 - bit RISC processor, comprises of eight(8) General Purpose Registers, which are present inside the register file.</li><br>
@@ -217,7 +235,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="operation"> Operation Encoding </h2>
+<h2 id="operation"> :twisted_rightwards_arrows: Operation Encoding </h2>
 <ul>
   <li>The 32 - bit RISC processor designed by me, works in total for 13 assembly instructions.</li><br>
   <li>Each operation is identified by a 5-bit Opcode and 1 bit of Enable Immediate or Offset.</li><br>
@@ -243,7 +261,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Immediate Value Encoding </h2>
+<h2 id="immediate"> :twisted_rightwards_arrows: Immediate Value Encoding </h2>
 
 <ul>
   <li>If the operation makes use of an immediate value or an offset, then the enable immediate value or offset bit is set to 1.</li><br>
@@ -253,7 +271,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="sample"> Sample Encodings </h2>
+<h2 id="sample"> :twisted_rightwards_arrows: Sample Encodings </h2>
 
 1.  The instruction should be written in the same order as given below, from **left to right**. Program Counter always starts from 0.
 
@@ -279,7 +297,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Encoded instructions in memory (or RAM) </h2>
+<h2 id="encoded"> :twisted_rightwards_arrows: Encoded instructions in memory (or RAM) </h2>
 
 <ul>
   <li> We did convert our instructions into 32-bit binary format, but inside RAM(memory), the data is stored in hexadecimal format.</li> 
@@ -306,7 +324,7 @@ The processor supports the following Assembly Instructions: -
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2> Program Execution Examples </h2>
+<h2 id="program"> 📚 Program Execution Examples </h2>
 
 ### **A = B + C – Immediate**
 
@@ -343,7 +361,7 @@ Memory image of this program assuming R2 having value 0110, is [here](memory-ima
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2> Usage Instructions </h2>
+<h2 id="usage"> 📋 Usage Instructions </h2>
 
 1. Clone this repository using
 `git clone https://github.com/harshsingh-24/32-bit-RISC-processor.git` or downloading the zip-file.
@@ -370,4 +388,13 @@ Memory image of this program assuming R2 having value 0110, is [here](memory-ima
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- CREDITS -->
+<h2 id="credits"> 📜 Credits</h2>
+
+**Harsh Singh Jadon (19CS01061)**
+
+[![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/harshsjadon)
+[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/harshsingh-24)
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/harsh-singh-jadon-55ab4519a/)
 
