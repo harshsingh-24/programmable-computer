@@ -392,7 +392,7 @@ Memory image of this program assuming R2 having value 0110, is [here](memory-ima
 <!-- CREDITS -->
 <h2 id="credits"> 📜 Credits</h2>
 
-**Harsh Singh Jadon (19CS01061)**
+**Harsh Singh Jadon**
 
 [![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/harshsjadon)
 [![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/harshsingh-24)
