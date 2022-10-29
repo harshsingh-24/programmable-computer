@@ -1,0 +1,26 @@
+// Register File Mapping
+
+R0 00000
+R1 00001
+R2 00010
+R3 00011
+R4 00100
+R5 00101
+R6 00110
+R7 00111
+
+// Operation Encoding - Last Bit is Immediate or Offset
+
+HLT   00000
+MOV   00001
+MVI   01000
+LOAD  00010
+STORE 00011
+ADD   00100
+ADI   00100
+SUB   00101
+SUI   00101
+AND   00110
+ANI   00110
+OR    00111
+ORI   00111

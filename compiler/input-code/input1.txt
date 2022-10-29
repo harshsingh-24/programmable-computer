@@ -1,0 +1,10 @@
+global 
+    // assignment statements
+
+    a := 40;
+    b := 90;
+    c := a + b;
+
+    // Arithmetic Expression - ans = 40
+    test1 := (a + b + c) + (100 - 75)
+end
