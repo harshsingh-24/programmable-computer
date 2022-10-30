@@ -1,4 +1,4 @@
-<h1 align = "center"> 32-bit RISC Processor-cum-Compiler </h1>
+<h1 align = "center"> RISC Processor and Compiler Integration </h1>
 <h3 align="center"> CS3L002 - Computer Organization and Architecture </h3>
 <h5 align="center"> Project Assignment - <a href="https://www.iitbbs.ac.in/">IIT Bhubaneswar</a> (Autumn 2021) </h5>
 
