@@ -13,9 +13,12 @@ letter [a-zA-Z]
 
 %%
 := return ASSIGN;
+,  return COMMA;
 : return COLON;
+def return DEF;
 end return END;
 global return GLOBAL;
+int return INT;
 \( return LEFT_PAREN;
 - return MINUS;
 \+ return PLUS;

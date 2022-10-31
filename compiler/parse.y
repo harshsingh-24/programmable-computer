@@ -5,12 +5,18 @@
     #include <map>
     #include "lex.yy.c"
     using namespace std;
-    bool flag = false;
     void yyerror(const char *str);
 
+    // flags
+    bool syntaxFlag = false;
+    bool semanticFlag = true;
+
     map<string, string> m;
+    map<string, string> decls;
+
     ofstream data("compiler-output/data.txt");
     ofstream code("compiler-output/assembly-code.txt");
+    ofstream declsAddress("compiler-output/declarations-address-mapping.txt");
     ifstream imap("encoding-table.txt");
 
     int data_address = 256;
@@ -43,7 +49,7 @@
 }
 
 %locations
-%token ASSIGN COLON END GLOBAL ID INT_CONST LEFT_PAREN MINUS PLUS RIGHT_PAREN SEMICOLON
+%token ASSIGN COMMA COLON DEF END GLOBAL ID INT INT_CONST LEFT_PAREN MINUS PLUS RIGHT_PAREN SEMICOLON
 
 %left PLUS MINUS
 %left AND OR
@@ -51,9 +57,37 @@
 %start S
 
 %%
-S: prog {flag = true; return 0;}
+S: prog {syntaxFlag = true; return 0;}
 
-prog: GLOBAL stmtListO END
+prog: GLOBAL declList stmtListO END
+;
+
+declList: decl declList
+|
+;
+
+decl: DEF typeList END
+;
+
+typeList: typeList SEMICOLON varList COLON type
+| varList COLON type {
+
+}
+;
+
+type: INT
+;
+
+varList: id COMMA varList {
+    string address = getDataAddress();
+    declsAddress << $<wrapper>1->label << " " << address << endl;
+    decls[$<wrapper>1->label] = address;
+}
+| id {
+    string address = getDataAddress();
+    declsAddress << $<wrapper>1->label << " " << address << endl;
+    decls[$<wrapper>1->label] = address; // "a = 1024"
+}
 ;
 
 stmtListO: stmtList
@@ -68,7 +102,15 @@ stmt: assignmentStmt
 ;
 
 assignmentStmt: id ASSIGN exp {
-    string address = getDataAddress();
+
+    if(decls.find($<wrapper>1->label) == decls.end()) {
+        // ID not declared
+        semanticFlag = false;
+        string error = $<wrapper>1->label + " not declared";
+        yyerror(error.c_str());
+    }
+
+    string address = decls[$<wrapper>1->label];
     // R2 is base register
     code << "LOAD R7 " << $<wrapper>3->label << " R2" << endl;
     code << "STORE R7 " << address << " R2" << endl;  
@@ -130,6 +172,12 @@ exp: exp PLUS exp {
     $<wrapper>$ = $<wrapper>2;
 }
 | id {
+    if(decls.find($<wrapper>1->label) == decls.end()) {
+        // ID not declared
+        semanticFlag = false;
+        string error = $<wrapper>1->label + " not declared";
+        yyerror(error.c_str());
+    }
     $<wrapper>$ = $<wrapper>1;
 }
 | INT_CONST {
@@ -147,7 +195,8 @@ int main(){
     int token;
     yyin = fopen("input-code/input1.txt", "r");
     yyparse();
-    cout << (flag ? "Accepted": "Rejected") << endl;
+    cout << (syntaxFlag ? "Grammar is Syntactically Correct": "Grammar is Syntactically Incorrect") << endl;
+    cout << (semanticFlag ? "Grammar is Semantically Correct": "Grammar is Semantically Incorrect") << endl;
     return 0;
 }
 

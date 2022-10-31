@@ -1,10 +1,15 @@
 global 
     // assignment statements
 
+    def
+        c: int;
+        a, b: int
+    end
+
     a := 40;
     b := 90;
     c := a + b;
 
     // Arithmetic Expression - ans = 40
-    test1 := (a + b + c) + (100 - 75)
+    c := (a + b) + (100 - 75)
 end
