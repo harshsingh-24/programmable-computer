@@ -10,6 +10,6 @@ global
     b := 90;
     c := a + b;
 
-    // Arithmetic Expression - ans = 40
+    // Arithmetic Expression - ans = 155
     c := (a + b) + (100 - 75)
 end
