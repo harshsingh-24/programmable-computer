@@ -276,6 +276,8 @@ void parseMemoryData(string s) {
 }
 
 int main() {
+
+    cout << "Memory Image Generator starting" << endl;
     string s;
     while(getline(encode, s)) {
         getEncodingInMap(s);
@@ -302,4 +304,6 @@ int main() {
         output << i.second << " ";
         count = i.first + 1;
     }
+
+    cout << "Memory Image Generator successfully executed" << endl;
 }
