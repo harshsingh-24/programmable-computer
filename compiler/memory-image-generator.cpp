@@ -8,7 +8,7 @@
 using namespace std;
 
 ifstream memory("compiler-output/data.txt");
-ifstream input("compiler-output/assembly-code.txt");
+ifstream input("compiler-output/final-assembly-code.txt");
 ifstream encode("encoding-table.txt");
 ofstream output("compiler-output/memory-image");
 
@@ -172,7 +172,32 @@ void parseAssemblyCode(string s) {
 
     if(operation == "HLT") {
         ans = binaryToHex(opcode + dr + sr1 + sr2 + iv + ei);
-        output << ans << " ";
+    } else if(operation == "MVI") {
+        opcode = encoding[operation];
+        // Get 16-bit Intermediate Value
+        string destination_register;
+        int intermediate_value;
+        ss >> destination_register >> intermediate_value;
+        dr = encoding[destination_register];
+        iv = decimalToBinary(intermediate_value);
+        ei = "1";
+
+        ans = binaryToHex(opcode + dr + sr1 + iv + ei);
+    } else if(operation == "JUMP") {
+        opcode = encoding[operation];
+        string source_register_2;
+        ss >> source_register_2;
+        sr2 = encoding[source_register_2];
+
+        ans = binaryToHex(opcode + dr + sr1 + sr2 + iv + ei);
+    } else if(operation == "JZ") {
+        opcode = encoding[operation];
+        string source_register_1, source_register_2;
+        ss >> source_register_1 >> source_register_2;
+        sr1 = encoding[source_register_1];
+        sr2 = encoding[source_register_2];
+
+        ans = binaryToHex(opcode + dr + sr1 + sr2 + iv + ei);
     } else {
         opcode = encoding[operation];
 
@@ -191,7 +216,8 @@ void parseAssemblyCode(string s) {
             ei = "1";
 
             ans = binaryToHex(opcode + dr + sr1 + iv + ei);
-        } else if (operation == "ADD" || operation == "SUB") {
+        } else if (operation == "ADD" || operation == "SUB" || operation == "AND" || operation == "OR" || 
+                   operation == "GT" || operation == "LT" || operation == "GE" || operation == "LE" || operation == "EQ") {
             string source_register_1;
             ss >> source_register_1;
             sr1 = encoding[source_register_1];
@@ -200,7 +226,6 @@ void parseAssemblyCode(string s) {
             ss >> source_register_2;
             sr2 = encoding[source_register_2];
 
-            // cout << opcode << " " << dr << " " << sr1 << " " << sr2 << " " << iv << " " << ei << endl; 
             ans = binaryToHex(opcode + dr + sr1 + sr2 + iv + ei);
         }
         else {
@@ -216,8 +241,9 @@ void parseAssemblyCode(string s) {
 
             ans = binaryToHex(opcode + dr + sr1 + iv + ei);
         }
-        output << ans << " ";
-    }   
+    }
+    
+    output << ans << " ";   
 }
 
 void getEncodingInMap(string s) {

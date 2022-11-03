@@ -2,14 +2,20 @@ global
     // assignment statements
 
     def
-        c: int;
-        a, b: int
+        a, b, c: int
     end
 
-    a := 40;
-    b := 90;
-    c := a + b;
+    a := 1;
+    b := 2;
+    c := 3;
 
-    // Arithmetic Expression - ans = 155
-    c := (a + b) + (100 - 75)
+    if a < b:
+        if b < c:
+		    b := 10
+        end;
+        c := 100
+	end
+
+    // Arithmetic Expression - ans = 155 (0x 9B)
+    // c := (a + b) + (100 - 75)
 end
