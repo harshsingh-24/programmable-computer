@@ -32,6 +32,7 @@ int return INT;
 \+ return PLUS;
 \) return RIGHT_PAREN;
 ; return SEMICOLON;
+while return WHILE;
 
 {digit}{digit}*(E[+-]?{digit}{digit}*)? { 
     int temp = atoi(yytext);

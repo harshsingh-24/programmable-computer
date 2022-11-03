@@ -1,3 +1,7 @@
+/* 
+The main Wrapper class which holds addresses(labels) of temporary variables generated in Three Address Code generation. 
+*/
+
 #include <iostream>
 using namespace std;
 class Wrapper {

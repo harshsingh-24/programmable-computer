@@ -72,7 +72,7 @@
 }
 
 %locations
-%token ASSIGN COMMA COLON DEF ELSE END EQ GLOBAL GE GT ID IF INT INT_CONST LEFT_PAREN LE LT MINUS NE PLUS RIGHT_PAREN SEMICOLON
+%token ASSIGN COMMA COLON DEF ELSE END EQ GLOBAL GE GT ID IF INT INT_CONST LEFT_PAREN LE LT MINUS NE PLUS RIGHT_PAREN SEMICOLON WHILE
 
 %left PLUS MINUS
 %left AND OR
@@ -123,6 +123,7 @@ stmtList: stmtList SEMICOLON stmt
 
 stmt: assignmentStmt
 | ifStmt
+| whileStmt
 ;
 
 // TODO: IF STMT, WHILE STMT and bExp relop bExp, Add Jump Statement in processor
@@ -181,6 +182,32 @@ elsePart: ELSE stmtList
 {
     code << endl;
 }
+;
+
+whileStmt: WHILE {
+    string lineNumber1 = lineTagGenerate();
+    string lineNumber2 = lineTagGenerate();
+
+    code << lineNumber1 << " :" << endl;
+    st.push(lineNumber2);
+    st.push(lineNumber1);
+    st.push(lineNumber2);
+}
+bExp {
+    string bExpResult = $<wrapper>3->label;
+    code << "LOAD R7 " << bExpResult << " R2" << endl;
+    code << "MVI R6 " << st.top() << endl;
+    code << "JZ R7 R6" << endl; // We will substitute label with address for PC later.
+    st.pop();
+}
+COLON stmtList {
+    code << "MVI R6 " << st.top() << endl;
+    code << "JUMP R6" << endl; 
+    st.pop();
+    code << st.top() << " :" << endl;
+    st.pop(); 
+} 
+END
 ;
 
 exp: exp PLUS exp {

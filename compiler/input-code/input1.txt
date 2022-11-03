@@ -2,19 +2,24 @@ global
     // assignment statements
 
     def
-        a, b, c: int
+        i,j,k,a,b,c: int
     end
 
+    i := 1;
+    j := 1;
+    k := 1;
     a := 1;
-    b := 2;
-    c := 3;
+    b := 1;
+    c := 1;
 
-    if a < b:
-        if b < c:
-		    b := 10
-        end;
-        c := 100
-	end
+    while i < 11:
+		i := i + 1;
+        j := j + 1;
+        k := k + 1;
+        a := a + 1;
+        b := b + 1;
+        c := c + 1
+	end	
 
     // Arithmetic Expression - ans = 155 (0x 9B)
     // c := (a + b) + (100 - 75)

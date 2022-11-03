@@ -1,3 +1,15 @@
+/* Responsible for substituting Labels generated for lines(like L0, L1, L2) with Address of actual statement in memory.
+ 
+ Example: 
+ JUMP L0
+ L0: ADD R1, R2, R3
+
+ will be replaced with - 
+
+ JUMP 1
+ ADD R1, R2, R3
+*/
+
 #include <iostream>
 #include <fstream>
 #include <map>
