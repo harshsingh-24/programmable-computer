@@ -1,7 +1,4 @@
 <h1 align = "center"> RISC Processor and Compiler Integration </h1>
-<h3 align="center"> CS3L002 - Computer Organization and Architecture </h3>
-<h5 align="center"> Project Assignment - <a href="https://www.iitbbs.ac.in/">IIT Bhubaneswar</a> (Autumn 2021) </h5>
-
 <p align="center"> 
 <img src="images/full-cpu.jpeg" alt="Final Design of 32-bit CPU" height="400px" width="800px">
 </p>
