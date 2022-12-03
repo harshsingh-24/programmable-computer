@@ -2,6 +2,7 @@ global
     // assignment statements
 
     def
+        check: int;
         i,j,k,a,b,c: int
     end
 
@@ -19,7 +20,15 @@ global
         a := a + 1;
         b := b + 1;
         c := c + 1
-	end	
+	end;
+
+    // and k == 11 and a == 11 and b == 1 and c == 1
+    if i == 11 and j == 11 :
+        check := 10
+    else
+        check := 11
+    end
+
 
     // Arithmetic Expression - ans = 155 (0x 9B)
     // c := (a + b) + (100 - 75)

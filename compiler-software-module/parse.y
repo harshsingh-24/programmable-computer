@@ -21,6 +21,7 @@
     ofstream declsAddress("compiler-output/declarations-address-mapping.txt");
     ifstream imap("encoding-table.txt");
 
+    // Data starts from memory address 256(0x100) in processor
     int data_address = 256;
     string getDataAddress() {
         int temp = data_address;
@@ -72,7 +73,7 @@
 }
 
 %locations
-%token ASSIGN COMMA COLON DEF ELSE END EQ GLOBAL GE GT ID IF INT INT_CONST LEFT_PAREN LE LT MINUS NE PLUS RIGHT_PAREN SEMICOLON WHILE
+%token AND ASSIGN COMMA COLON DEF ELSE END EQ GLOBAL GE GT ID IF INT INT_CONST LEFT_PAREN LE LT MINUS NE OR PLUS RIGHT_PAREN SEMICOLON WHILE
 
 %left PLUS MINUS
 %left AND OR
@@ -133,7 +134,7 @@ stmt: assignmentStmt
 assignmentStmt: id ASSIGN exp {
 
     if(decls.find($<wrapper>1->label) == decls.end()) {
-        // ID not declared
+        // identifier variable not declared
         semanticFlag = false;
         string error = $<wrapper>1->label + " not declared";
         yyerror(error.c_str());
@@ -285,7 +286,7 @@ int main(){
     FileUtils fileutils;
 
     int token;
-    yyin = fopen("input-code/input1.txt", "r");
+    yyin = fopen("input-program/input1.txt", "r");
     yyparse();
     cout << (syntaxFlag ? "Grammar is Syntactically Correct": "Grammar is Syntactically Incorrect") << endl;
     cout << (semanticFlag ? "Grammar is Semantically Correct": "Grammar is Semantically Incorrect") << endl;

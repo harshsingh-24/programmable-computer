@@ -9,7 +9,7 @@ R5 00101
 R6 00110
 R7 00111
 
-// Operation Encoding - Last Bit is Immediate or Offset
+// Operation Encoding 
 
 HLT   00000
 MOV   00001

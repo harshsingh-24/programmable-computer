@@ -12,6 +12,7 @@ digit [0-9]
 letter [a-zA-Z]
 
 %%
+and return AND;
 := return ASSIGN;
 ,  return COMMA;
 : return COLON;
@@ -29,6 +30,7 @@ int return INT;
 \< return LT;
 - return MINUS;
 \<\> return NE;
+or return OR;
 \+ return PLUS;
 \) return RIGHT_PAREN;
 ; return SEMICOLON;
